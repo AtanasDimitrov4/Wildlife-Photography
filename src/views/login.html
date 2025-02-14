@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>404 Page</title>
+    <title>Login Page</title>
 
     <!-- Do not forget to change the path to the css file -->
     <link href="./static/css/style.css" type="text/css" rel="stylesheet">
@@ -39,20 +39,38 @@
 
         </nav>
 
-
         <main>
 
-            <div class="full-screen">
-                <div class='con-not-found'>
-                    <span class="error-num">4</span>
-                    <div class='eye'></div>
-                    <span class="error-num">4</span>
+            <section id="login-page">
 
-                    <p class="sub-text">Something went wrong. We're <span class="italic">looking</span> to see what happened.</p>
-                    <p>Go Back to <a href="#">Home</a></p>
+                <div class="loginSection">
+                    <div class="info">
+                        <h2>Welcome, again!</h2>
+                        <p>View new posts.</p>
+                    </div>
+                    <form action="#" method="" class="loginForm">
+                        <h2>Login</h2>
+                        <ul class="noBullet">
+                            <li>
+                                <label for="email">Email:</label>
+                                <input type="text" class="inputFields" id="email" name="" placeholder="alex@gmail.com" />
+                            </li>
+                            <li>
+                                <label for="password">Password:</label>
+                                <input type="password" class="inputFields" id="password" name="" placeholder="*******" />
+                            </li>
+
+                            <li id="center-btn">
+                                <button id="login-btn">Login</button>
+                            </li>
+                        </ul>
+                    </form>
                 </div>
-            </div>
+
+            </section>
+
         </main>
+
 
         <footer>
             © Js Back-End Exam 2021

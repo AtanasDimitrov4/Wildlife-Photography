@@ -3,13 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>404 Page</title>
+    <title>Home Page</title>
 
     <!-- Do not forget to change the path to the css file -->
     <link href="./static/css/style.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
+
 
     <div id="box">
 
@@ -39,20 +40,37 @@
 
         </nav>
 
-
         <main>
 
-            <div class="full-screen">
-                <div class='con-not-found'>
-                    <span class="error-num">4</span>
-                    <div class='eye'></div>
-                    <span class="error-num">4</span>
+            <section id="home">
+                <div class="home-container">
 
-                    <p class="sub-text">Something went wrong. We're <span class="italic">looking</span> to see what happened.</p>
-                    <p>Go Back to <a href="#">Home</a></p>
+                    <div class="short-info">
+                        <h1>The best of the wildlife photography.</h1>
+                        <h2>Share knowledge about the environment and enrich your life.</h2>
+                    </div>
+
                 </div>
-            </div>
+            </section>
+
+            <section id="home-page">
+
+                <div class="offers">
+                    <!-- Do not forget to change the path to the image -->
+                    <div class="col container"><img src="./static/img/nature1.jpg" alt="nature_1"></div>
+                    <!-- Do not forget to change the path to the image -->
+                    <div class="col container"><img src="./static/img/nature2.jpg" alt="nature_2"></div>
+                    <!-- Do not forget to change the path to the image -->
+                    <div class="col container"><img src="./static/img/nature3.jpg" alt="nature_3"></div>
+                    <!-- Do not forget to change the path to the image -->
+                    <div class="col container"><img src="./static/img/nature4.jpg" alt="nature_4"></div>
+                </div>
+
+            </section>
+
+
         </main>
+
 
         <footer>
             © Js Back-End Exam 2021
