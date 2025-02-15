@@ -1,27 +1,30 @@
 {{setTitle "Login"}}
+<section id="login-page">
 
-<section class="login-hero">
-        <div class="container">
-            <h2>Login to Your Account</h2>
-            <p>Access your order history, track orders, and more.</p>
-        </div>
-    </section>
+                <div class="loginSection">
+                    <div class="info">
+                        <h2>Welcome, again!</h2>
+                        <p>View new posts.</p>
+                    </div>
+                    <form  method="POST" class="loginForm">
+                        <h2>Login</h2>
+                        <ul class="noBullet">
+                            <li>
+                                <label for="email">Email:</label>
+                                <input type="text" class="inputFields" id="email" name="email" placeholder="" />
+                            </li>
+                            <li>
+                                <label for="password">Password:</label>
+                                <input type="password" class="inputFields" id="password" name="password" placeholder="" />
+                            </li>
 
-    <section class="login-form">
-        <div class="container">
-            <form  method="POST">
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="{{user.email}}">
+                            <li id="center-btn">
+                                <button id="login-btn">Login</button>
+                            </li>
+                        </ul>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password">
-                </div>
-                <button type="submit" class="btn">Login</button>
-                <p>Don't have an account? <a href="/auth/register">Register</a></p>
-            </form>
-        </div>
+
 </section>
 
-   
+ 

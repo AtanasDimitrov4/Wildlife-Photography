@@ -1,32 +1,36 @@
-<section class="register-hero">
-        <div class="container">
-            <h2>Create Your Account</h2>
-            <p>Join us to get the best deals on laptops, desktops, and accessories.</p>
-        </div>
-    </section>
-
-    <section class="register-form">
-        <div class="container">
-            <form  method="POST">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="username" value="{{user.username}}">
+{{setTitle "Register"}}
+<section id="register-page">
+                <div class="signupSection">
+                    <div class="info">
+                        <h2>To discover and share knowledge about the environment in order to preserve and enrich life.</h2>
+                    </div>
+                    <form  method="POST" class="signupForm">
+                        <h2>Sign Up</h2>
+                        <ul class="noBullet">
+                            <li>
+                                <label for="first-name">First Name:</label>
+                                <input type="text" class="inputFields" id="first-name" name="firstName" value="{{user.firstName}}" placeholder="Alex" />
+                            </li>
+                            <li>
+                                <label for="last-name">Last Name:</label>
+                                <input type="text" class="inputFields" id="last-name" name="lastName" value="{{user.lastName}}" placeholder="Petkov" />
+                            </li>
+                            <li>
+                                <label for="email">Email:</label>
+                                <input type="text" class="inputFields" id="email" name="emai" value="{{user.email}}" placeholder="alex@gmail.com" />
+                            </li>
+                            <li>
+                                <label for="password">Password:</label>
+                                <input type="password" class="inputFields" id="password" name="password" placeholder="******" />
+                            </li>
+                            <li>
+                                <label for="repeat-password">Repeat-Password:</label>
+                                <input type="password" class="inputFields" id="repeat-password" name="confirmPassword" value="" />
+                            </li>
+                            <li id="center-btn">
+                                <button id="join-btn">Join</button>
+                            </li>
+                        </ul>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="{{user.email}}">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password">
-                </div>
-                <div class="form-group">
-                    <label for="confirm-password">Confirm Password:</label>
-                    <input type="password" id="confirm-password" name="confirmPassword">
-                </div>
-                <button type="submit" class="btn">Register</button>
-                <p>Already have an account? <a href="/auth/login">Login</a></p>
-            </form>
-        </div>
 </section>
-
