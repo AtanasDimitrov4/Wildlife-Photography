@@ -19,7 +19,7 @@ posterController.post('/create', isAuth, async (req, res) => {
     try {
         await posterService.create(posterData, userId);
 
-        res.redirect('posters/all-posts');
+        res.redirect('all-posts');
     } catch (err) {
         res.render('posters/create', {
             error: getErrorMessage(err),
@@ -31,10 +31,28 @@ posterController.post('/create', isAuth, async (req, res) => {
 posterController.get('/all-posts', async (req, res) => {
     try {
     const posters = await posterService.getAll();
+    res.render('posters/all-posts', { posters } );
+
     } catch(err) {
         res.redirect('404');
     }
-    res.render('posters/all-posts', { posters } );
+});   
+
+posterController.get('/:posterId/details', async (req, res) => {
+   const posterId = req.params.posterId;
+   
+   try {
+    const poster = await posterService.getOne(posterId);
+    const isAuthor = req.user && req.user.id === poster.author.toString();
+    const isVoted = poster.votes.includes(req.user?.id);
+
+    res.render('posters/details', { poster, isAuthor, isVoted })
+
+   } catch (err) {
+    const error = getErrorMessage(err);
+    return res.render('/poster/details', { error })
+   }
+    
 });
 
 

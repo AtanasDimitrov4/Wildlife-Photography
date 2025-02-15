@@ -20,4 +20,8 @@ export default {
   
         return query;
       },
+
+    getOne(posterId) {
+        return Poster.findById(posterId);
+    }
 };
