@@ -46,13 +46,41 @@ posterController.get('/:posterId/details', async (req, res) => {
     const isAuthor = req.user && req.user.id === poster.author.toString();
     const isVoted = poster.votes.includes(req.user?.id);
 
-    res.render('posters/details', { poster, isAuthor, isVoted })
+    res.render('posters/details', { poster, isAuthor, isVoted });
 
    } catch (err) {
     const error = getErrorMessage(err);
-    return res.render('/poster/details', { error })
+    return res.render('/posters/details', { error })
    }
     
+});
+
+posterController.get('/:posterId/edit', isAuth, async (req, res) => {
+    const posterId = req.params.posterId;
+    const poster = await posterService.getOne(posterId);
+    const userId = req.user?.id;
+
+    if (poster.author != userId) {
+        return res.redirect('404');
+    }
+
+    res.render('posters/edit', { poster })
+});
+
+posterController.post('/:posterId/edit', isAuth, async (req, res) => {
+   const posterId = req.params.posterId;
+   const posterData = req.body;
+   
+   try {
+    await posterService.update(posterId, posterData);
+
+    return res.redirect(`/posters/${posterId}/details`)
+    } catch (err) {
+        res.render('posters/create', { 
+            error: getErrorMessage(err),
+            poster: posterData
+        });
+    }
 });
 
 

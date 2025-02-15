@@ -23,5 +23,8 @@ export default {
 
     getOne(posterId) {
         return Poster.findById(posterId);
+    },
+    update(posterId, posterData) {
+      return Poster.findByIdAndUpdate(posterId, posterData, { runValidators: true });
     }
 };

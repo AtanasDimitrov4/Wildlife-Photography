@@ -18,12 +18,12 @@
                             {{#if user}}
                             <div class="social-btn">
                                 {{#if isAuthor}}
-                                <a href="#" class="edit-btn">Edit</a>
-                                <a href="#" class="del-btn">Delete</a>
+                                <a href="/posters/{{poster._id}}/edit" class="edit-btn">Edit</a>
+                                <a href="/posters/{{poster._id}}/delete" class="del-btn">Delete</a>
                                 {{else}}
                                 {{#unless isVoted}}
-                                <a href="#" class="vote-up">UpVote +1</a>
-                                <a href="#" class="vote-down">DownVote -1</a>
+                                <a href="/posters/vote/{{poster._id}}/upVote" class="vote-up">UpVote +1</a>
+                                <a href="/posters/vote/{{poster._id}}/downVote" class="vote-down">DownVote -1</a>
                                 {{else}}
                                 <p class="thanks-for-vote">Thanks For Voting</p>
                                 {{/unless}}
