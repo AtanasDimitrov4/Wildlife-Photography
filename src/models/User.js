@@ -3,10 +3,6 @@ import bcrypt from 'bcrypt';
 
 // TODO: Modify user schema
 const userSchema = new Schema({
-    email: {
-        type: String,
-        required: [true, 'Email is required!'],
-    },
     firstName: {
         type: String,
         required: [true, 'First name is required!'],
@@ -14,6 +10,10 @@ const userSchema = new Schema({
     lastName: {
         type: String,
         required: [true, 'Last name is required!']
+    },
+    email: {
+        type: String,
+        required: [true, 'Email is required!'],
     },
     password: {
         type: String,
