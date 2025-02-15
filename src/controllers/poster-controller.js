@@ -6,6 +6,8 @@ import posterService from "../services/poster-service.js";
 
 const posterController = Router();
 
+
+
 posterController.get('/create', isAuth, (req, res) => {
    res.render('posters/create');
 });
@@ -17,13 +19,22 @@ posterController.post('/create', isAuth, async (req, res) => {
     try {
         await posterService.create(posterData, userId);
 
-        res.redirect('/all-posts');
+        res.redirect('posters/all-posts');
     } catch (err) {
         res.render('posters/create', {
             error: getErrorMessage(err),
             poster: posterData
         });
     }
+});
+
+posterController.get('/all-posts', async (req, res) => {
+    try {
+    const posters = await posterService.getAll();
+    } catch(err) {
+        res.redirect('404');
+    }
+    res.render('posters/all-posts', { posters } );
 });
 
 
