@@ -1,7 +1,7 @@
 import { Schema, model, Types } from "mongoose"
 
 
-const postSchema = new Schema ({
+const posterSchema = new Schema ({
     title: {
         type: String,
         required: true,
@@ -41,6 +41,6 @@ const postSchema = new Schema ({
     
 });
 
-const Post = model('Post', postSchema);
+const Poster = model('Poster', posterSchema);
 
-export default Post;
+export default Poster;
