@@ -3,48 +3,59 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechStore{{#if pageTitle}} | {{pageTitle}}{{/if}}</title>
-    <link rel="stylesheet" href="/styles/styles.css">
-</head>
+    <title>{{#if pageTitle}} | {{pageTitle}}{{/if}}</title>
 
-<body>
-    <header>
-        <div class="container">
-            <h1>TechStore</h1>
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="#">Catalog</a></li>
-                    <li><a href="#">About</a></li>
-                    {{#if user}}
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Create Offer</a></li>
-                    <li><a href="/auth/logout">Logout</a></li>
-                    {{else}}
-                    <li><a href="/auth/login">Login</a></li>
-                    <li><a href="/auth/register">Register</a></li>
-                    {{/if}}
-                </ul>
-            </nav>
-        </div>
-    </header>
-    
-   {{#if error}}
-    <div>
-        <div class="errorContainer">
+<!-- Do not forget to change the path to the css file -->
+    <link href="/public/styles/css/style.css" type="text/css" rel="stylesheet">
+
+
+       {{#if error}}
+      <div id="box">
+        <div class="error-container">
             <p>{{error}}</p>
         </div>
-    </div>
-    {{/if}}
-    
-    {{{body}}}
+        {{/if}}
+</head>
 
-    <footer>
+
+
+        <nav>
+            <!-- Do not forget to change the path to the image -->
+            <img src="public/styles/img/logo.png" alt="logo">
+
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">All Posts</a></li>
+                 {{#if user}}
+                <li><a href="#">Create Post</a></li>
+                <li><a href="#">Posts of {{email-of-user}}</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
+                 {{else}}
+                <li><a href="/auth/register">Register</a></li>
+                <li><a href="/auth/login">Login</a></li>
+                 {{/if}}
+            </ul>
+
+        </nav>
+
+        <main>
+
+        {{{body}}}
+
+        </main>
+
+ <footer>
         <div class="container">
             <p>&copy; 2024 TechStore. All rights reserved.</p>
         </div>
     </footer>
 </body>
 
+
 </html>
+
+
+
+ 
+
+
