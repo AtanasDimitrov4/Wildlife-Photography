@@ -22,9 +22,26 @@ export default {
       },
 
     getOne(posterId) {
-        return Poster.findById(posterId);
+        return Poster.findById(posterId).populate('author', 'firstname lastname').populate('votes', 'email');;
     },
+
     update(posterId, posterData) {
       return Poster.findByIdAndUpdate(posterId, posterData, { runValidators: true });
+    },
+
+    delete(posterId) {
+      return Poster.findByIdAndDelete(posterId);
+    },
+
+   async vote(posterId, userId, value) {
+    const poster = await Poster.findById(posterId);
+
+    if(poster.votes.includes(userId)) {
+      throw new Error('User already voted!');
     }
+
+    poster.votes.push(userId);
+    poster.rating += value;
+    await poster.save();
+   }
 };

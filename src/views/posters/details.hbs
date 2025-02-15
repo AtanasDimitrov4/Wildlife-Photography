@@ -49,7 +49,7 @@
                                 <p class="PV">Total rating of votes: {{poster.rating}}</p>
                             </div>
                             {{#if votes}}
-                            <p class="disc">People who voted for the post - {{#each votes}}{{email}} {{/each}}</p>
+                            <p class="disc">People who voted for the post - {{#each votes}}{{poster.votes}} {{/each}}</p>
                             {{else}}
                             <p class="disc">People who voted for the post - No one has voted yet.</p>
                             {{/if}}

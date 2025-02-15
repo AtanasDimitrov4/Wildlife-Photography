@@ -83,5 +83,35 @@ posterController.post('/:posterId/edit', isAuth, async (req, res) => {
     }
 });
 
+posterController.get('/:posterId/delete', isAuth, async (req, res) => {
+    const posterId = req.params.posterId;
+    const poster = await posterService.getOne(posterId);
+    const userId = req.user?.id;
+
+    if (poster.author != userId) {
+        return res.redirect('404');
+    }
+
+    await posterService.remove(posterId);
+
+    res.redirect('/all-posts');
+});
+
+posterController.get('/vote/:posterId/:type', isAuth, async (req, res) => {
+    const posterId = req.params.posterId;
+    const poster = await posterService.getOne(posterId);
+    const type = req.params.type == 'upvote' ? 1 : -1;
+    const userId = req.user?.id;
+
+    try {
+        await posterService.vote(posterId, userId, type);
+        res.redirect(`/posters/${posterId}/details`);
+    } catch (err) {
+        const error = getErrorMessage(err);
+        
+        res.render('posters/details', { poster, error });
+    }
+});
+
 
 export default posterController;
