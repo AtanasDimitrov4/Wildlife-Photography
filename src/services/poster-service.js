@@ -22,7 +22,7 @@ export default {
       },
 
     getOne(posterId) {
-        return Poster.findById(posterId).populate('author', 'firstname lastname').populate('votes', 'email');;
+        return Poster.findById(posterId);
     },
 
     update(posterId, posterData) {
